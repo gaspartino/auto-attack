@@ -304,7 +304,7 @@ class AutoAttack():
             print('setting parameters for {} version'.format(version))
         
         if version == 'standard':
-            self.attacks_to_run = ['apgd-ce', 'apgd-t', 'fab-t', 'square']
+            self.attacks_to_run = ['square']
             if self.norm in ['Linf', 'L2']:
                 self.apgd.n_restarts = 1
                 self.apgd_targeted.n_target_classes = 9
