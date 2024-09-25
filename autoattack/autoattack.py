@@ -400,7 +400,7 @@ class AutoAttack():
             self.apgd.n_restarts = 1
             self.apgd.eot_iter = 20
         
-        if version == 'customAPGDCE':
+        elif version == 'customAPGDCE':
             self.attacks_to_run = ['apgd-ce']
             if self.norm in ['Linf', 'L2']:
                 self.apgd.n_restarts = 1
