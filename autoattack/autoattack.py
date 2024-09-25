@@ -331,7 +331,7 @@ class AutoAttack():
                 print('"{}" version is used with {} norm: please check'.format(
                     version, self.norm))
 
-        if version == 'customAPGDCE':
+        elif version == 'customAPGDCE':
             self.attacks_to_run = ['apgd-ce']
             if self.norm in ['Linf', 'L2']:
                 self.apgd.n_restarts = 1
@@ -399,67 +399,3 @@ class AutoAttack():
             self.attacks_to_run = ['apgd-ce', 'apgd-dlr']
             self.apgd.n_restarts = 1
             self.apgd.eot_iter = 20
-        
-        elif version == 'customAPGDCE':
-            self.attacks_to_run = ['apgd-ce']
-            if self.norm in ['Linf', 'L2']:
-                self.apgd.n_restarts = 1
-                self.apgd_targeted.n_target_classes = 9
-            elif self.norm in ['L1']:
-                self.apgd.use_largereps = True
-                self.apgd_targeted.use_largereps = True
-                self.apgd.n_restarts = 5
-                self.apgd_targeted.n_target_classes = 5
-            self.fab.n_restarts = 1
-            self.apgd_targeted.n_restarts = 1
-            self.fab.n_target_classes = 9
-            #self.apgd_targeted.n_target_classes = 9
-            self.square.n_queries = 5000
-        
-        elif version == 'customAPGDT':
-            self.attacks_to_run = ['apgd-t']
-            if self.norm in ['Linf', 'L2']:
-                self.apgd.n_restarts = 1
-                self.apgd_targeted.n_target_classes = 9
-            elif self.norm in ['L1']:
-                self.apgd.use_largereps = True
-                self.apgd_targeted.use_largereps = True
-                self.apgd.n_restarts = 5
-                self.apgd_targeted.n_target_classes = 5
-            self.fab.n_restarts = 1
-            self.apgd_targeted.n_restarts = 1
-            self.fab.n_target_classes = 9
-            #self.apgd_targeted.n_target_classes = 9
-            self.square.n_queries = 5000
-
-        elif version == 'customFABT':
-            self.attacks_to_run = ['fab-t']
-            if self.norm in ['Linf', 'L2']:
-                self.apgd.n_restarts = 1
-                self.apgd_targeted.n_target_classes = 9
-            elif self.norm in ['L1']:
-                self.apgd.use_largereps = True
-                self.apgd_targeted.use_largereps = True
-                self.apgd.n_restarts = 5
-                self.apgd_targeted.n_target_classes = 5
-            self.fab.n_restarts = 1
-            self.apgd_targeted.n_restarts = 1
-            self.fab.n_target_classes = 9
-            #self.apgd_targeted.n_target_classes = 9
-            self.square.n_queries = 5000
-            
-        elif version == 'customSquare':
-            self.attacks_to_run = ['square']
-            if self.norm in ['Linf', 'L2']:
-                self.apgd.n_restarts = 1
-                self.apgd_targeted.n_target_classes = 9
-            elif self.norm in ['L1']:
-                self.apgd.use_largereps = True
-                self.apgd_targeted.use_largereps = True
-                self.apgd.n_restarts = 5
-                self.apgd_targeted.n_target_classes = 5
-            self.fab.n_restarts = 1
-            self.apgd_targeted.n_restarts = 1
-            self.fab.n_target_classes = 9
-            #self.apgd_targeted.n_target_classes = 9
-            self.square.n_queries = 5000
